@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWear - Sustainable Fashion for a Better Tomorrow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #3e3e3e;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #5a8a5a;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #3e3e3e;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #5a8a5a;
+        }
+        
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background-color: #f8f5f0;
+            background-image: linear-gradient(rgba(248, 245, 240, 0.9), rgba(248, 245, 240, 0.9)), url('https://images.unsplash.com/photo-1523381210438-815e34f75c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #3e3e3e;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #5a8a5a;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(90, 138, 90, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #4a7a4a;
+            transform: translateY(-2px);
+        }
+        
+        .benefits {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #3e3e3e;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #5a8a5a;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: #f8f5f0;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            color: #5a8a5a;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #3e3e3e;
+        }
+        
+        .benefit-card p {
+            color: #666;
+        }
+        
+        .products {
+            padding: 80px 0;
+            background-color: #f8f5f0;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #3e3e3e;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            color: #5a8a5a;
+            font-weight: 700;
+        }
+        
+        .testimonial {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-size: 24px;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .testimonial-text::before, .testimonial-text::after {
+            content: '"';
+            font-size: 60px;
+            color: #5a8a5a;
+            position: absolute;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: 0;
+        }
+        
+        .customer-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .customer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #5a8a5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .customer-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .customer-details p {
+            color: #666;
+        }
+        
+        .final-cta {
+            padding: 80px 0;
+            background-color: #5a8a5a;
+            text-align: center;
+            color: white;
+            background-image: linear-gradient(rgba(90, 138, 90, 0.9), rgba(90, 138, 90, 0.9)), url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .final-cta .cta-button {
+            background-color: white;
+            color: #5a8a5a;
+        }
+        
+        .final-cta .cta-button:hover {
+            background-color: #f8f5f0;
+        }
+        
+        footer {
+            background-color: #3e3e3e;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #5a8a5a;
+        }
+        
+        .social-icons {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #5a8a5a;
+        }
+        
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">EcoWear</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Sustainable Fashion That Doesn't Cost the Earth</h1>
+            <p>Discover our collection of ethically made clothing that combines style with sustainability</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose EcoWear</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Materials</h3>
+                    <p>All our clothing is made from sustainable fabrics like organic cotton, hemp, and recycled materials that are gentle on the planet.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Ethical Production</h3>
+                    <p>We partner with fair-trade certified factories, ensuring safe working conditions and fair wages for all garment workers.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Circular Fashion</h3>
+                    <p>Our circular design approach ensures longevity and recyclability, reducing waste and extending the life of each garment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Organic Cotton Dress</h3>
+                        <p class="product-price">$89.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1525506114042-4a24b1a40483?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Hemp Blend Shirt</h3>
+                        <p class="product-price">$65.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Fiber Top</h3>
+                        <p class="product-price">$54.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1542271021-7eec08c543cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Recycled Denim Jeans</h3>
+                        <p class="product-price">$99.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-container">
+                <p class="testimonial-text">I've never felt better about my clothing choices. EcoWear's pieces are not only stylish and comfortable, but I also know I'm supporting a company that truly cares about the environment and ethical production.</p>
+                <div class="customer-info">
+                    <div class="customer-avatar">JS</div>
+                    <div class="customer-details">
+                        <h4>Jessica Simmons</h4>
+                        <p>Customer since 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-cta">
+        <div class="container">
+            <h2>Join the Sustainable Fashion Movement</h2>
+            <p>Make a difference with your wardrobe. Shop our collection and enjoy 10% off your first order.</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+            <p>&copy; 2023 EcoWear. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
